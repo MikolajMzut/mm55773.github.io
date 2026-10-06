@@ -53,12 +53,11 @@ h3 {
 
 h1 {
   margin: 1rem 0 0;
-  width: 100%;
   padding: clamp(2rem, 8vw, 5.5rem);
   border: 1px solid #a9a2ff55;
   border-radius: 1.5rem;
   background:
-    radial-gradient(ellipse at 82% 20%, #8780ff55, transparent 25rem),
+    radial-gradient(ellipse at 82% 20%, #8780ff66, transparent 25rem),
     linear-gradient(125deg, #242343, #171927 68%, #11242f);
   box-shadow: 0 25px 70px #0007, inset 0 1px #ffffff20;
   color: #f7f5ff;
@@ -84,14 +83,13 @@ h3 {
   flex-direction: column;
   justify-content: center;
   min-width: 0;
-  width: 100%;
   min-height: 11rem;
   margin: 0;
   padding: clamp(1.25rem, 3vw, 2rem);
   border: 1px solid #a7a6f34a;
   border-radius: 1.25rem;
   background:
-    radial-gradient(ellipse at 15% 15%, #8780ff45, transparent 75%),
+    radial-gradient(ellipse at 15% 15%, #8780ff55, transparent 75%),
     linear-gradient(145deg, #29274c, #191c2c 80%);
   box-shadow: 0 18px 42px #0004, inset 0 1px #ffffff17;
   color: #e8e6ff;
@@ -118,7 +116,7 @@ h2::before {
 h3 {
   border-color: #75cbe34a;
   background:
-    radial-gradient(ellipse at 15% 15%, #4bc5df38, transparent 75%),
+    radial-gradient(ellipse at 15% 15%, #4bc5df4a, transparent 75%),
     linear-gradient(145deg, #1d3545, #171d2a 80%);
   color: #ddf8ff;
 }
@@ -139,7 +137,7 @@ body > h2 + p {
 body > h2:nth-of-type(3n) {
   grid-column: span 5;
   background:
-    radial-gradient(ellipse at 15% 15%, #df7aff45, transparent 75%),
+    radial-gradient(ellipse at 15% 15%, #df7aff55, transparent 75%),
     linear-gradient(145deg, #39274b, #1b1b2d 80%);
   border-color: #df9aff55;
 }
@@ -171,13 +169,12 @@ body > h3:nth-of-type(3n) + p {
 p,
 ul {
   min-width: 0;
-  width: 100%;
   margin: 0;
   padding: clamp(1.25rem, 3vw, 2rem);
   border: 1px solid #999cc638;
   border-radius: 1.25rem;
   background:
-    radial-gradient(ellipse at 100% 0, #8884ff20, transparent 70%),
+    radial-gradient(ellipse at 100% 0, #8884ff30, transparent 70%),
     linear-gradient(145deg, #202334, #151824 75%);
   box-shadow: 0 18px 42px #0004, inset 0 1px #ffffff12;
   color: #c9cddd;
@@ -200,7 +197,7 @@ body > p:first-of-type {
 ul {
   padding-left: 3rem;
   background:
-    radial-gradient(ellipse at 0 0, #42c8db25, transparent 70%),
+    radial-gradient(ellipse at 0 0, #42c8db35, transparent 70%),
     linear-gradient(145deg, #172631, #151824 75%);
 }
 
@@ -243,7 +240,6 @@ footer::before {
   body {
     grid-template-columns: minmax(0, 1fr);
     gap: 0.85rem;
-    width: 100%;
     padding: 1rem 0.75rem 3rem;
   }
 
