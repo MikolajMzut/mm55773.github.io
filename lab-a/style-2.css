@@ -14,29 +14,28 @@
 body {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: 1.25rem;
+  gap: 1rem;
   width: min(100% - 3rem, 1120px);
   min-height: 100vh;
   margin: 0 auto;
   padding: 2rem 0 4rem;
   background:
-    radial-gradient(ellipse at 80% 0, #34326a35, transparent 34rem),
-    radial-gradient(ellipse at 0 28rem, #17608022, transparent 30rem);
+    radial-gradient(ellipse at 85% 0, #5552c844, transparent 34rem),
+    radial-gradient(ellipse at 0 42rem, #16a2c826, transparent 38rem);
 }
 
 header,
 footer,
 body > h1,
-body > h2,
-body > p,
+body > p:first-of-type,
 body > ul {
   grid-column: 1 / -1;
 }
 
 header {
   padding: 0.8rem 0;
-  border-bottom: 1px solid #777da54d;
-  color: #9da7c9;
+  border-bottom: 1px solid #8a8eb744;
+  color: #aeb4d1;
   font-family: "Orbitron", sans-serif;
   font-size: 0.7rem;
   letter-spacing: 0.18em;
@@ -50,21 +49,20 @@ h1,
 h2,
 h3 {
   font-family: "Orbitron", sans-serif;
-  font-weight: 500;
 }
 
 h1 {
-  position: relative;
   margin: 1rem 0 0;
   padding: clamp(2rem, 8vw, 5.5rem);
-  border: 1px solid #a9a2ff3d;
+  border: 1px solid #a9a2ff55;
   border-radius: 1.5rem;
   background:
-    radial-gradient(ellipse at 80% 15%, #7584ff30, transparent 22rem),
-    linear-gradient(125deg, #1a1c30, #11131d 72%);
-  box-shadow: 0 24px 70px #0005, inset 0 1px #ffffff12;
-  color: #f5f4ff;
+    radial-gradient(ellipse at 82% 20%, #8780ff55, transparent 25rem),
+    linear-gradient(125deg, #242343, #171927 68%, #11242f);
+  box-shadow: 0 25px 70px #0007, inset 0 1px #ffffff20;
+  color: #f7f5ff;
   font-size: clamp(2.4rem, 8vw, 5.5rem);
+  font-weight: 600;
   letter-spacing: -0.055em;
   line-height: 1.1;
   overflow-wrap: anywhere;
@@ -73,37 +71,98 @@ h1 {
 h1::before {
   display: block;
   margin-bottom: 1.1rem;
-  color: #87dcff;
+  color: #88e4ff;
   content: "NEXT GENERATION  /  2026";
   font-size: 0.7rem;
   letter-spacing: 0.2em;
 }
 
-h2 {
-  margin: 1.5rem 0 0;
-  padding: 1rem 0 0.8rem;
-  border-top: 1px solid #8993bd4d;
-  color: #b4b8ff;
-  font-size: clamp(1.2rem, 3vw, 1.7rem);
-  line-height: 1.35;
+h2,
+h3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  min-height: 11rem;
+  margin: 0;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: 1px solid #a7a6f34a;
+  border-radius: 1.25rem;
+  background:
+    radial-gradient(ellipse at 15% 15%, #8780ff45, transparent 75%),
+    linear-gradient(145deg, #29274c, #191c2c 80%);
+  box-shadow: 0 18px 42px #0004, inset 0 1px #ffffff17;
+  color: #e8e6ff;
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  font-weight: 500;
+  line-height: 1.45;
   overflow-wrap: anywhere;
+}
+
+h2::before,
+h3::before {
+  margin-bottom: 0.8rem;
+  color: #8ce2ff;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+h2::before {
+  content: "01  /  OVERVIEW";
 }
 
 h3 {
-  grid-column: span 4;
-  align-self: start;
-  margin: 0;
-  padding: 1.25rem;
-  border: 1px solid #8290bb30;
-  border-radius: 1rem;
-  background: linear-gradient(145deg, #1a2030, #141722);
-  color: #87dcff;
-  font-size: 1rem;
-  line-height: 1.5;
-  overflow-wrap: anywhere;
+  border-color: #75cbe34a;
+  background:
+    radial-gradient(ellipse at 15% 15%, #4bc5df38, transparent 75%),
+    linear-gradient(145deg, #1d3545, #171d2a 80%);
+  color: #ddf8ff;
 }
 
-h3 + p {
+h3::before {
+  content: "DETAIL  /  SPEC";
+  color: #86e9f4;
+}
+
+body > h2 {
+  grid-column: span 4;
+}
+
+body > h2 + p {
+  grid-column: span 8;
+}
+
+body > h2:nth-of-type(3n) {
+  grid-column: span 5;
+  background:
+    radial-gradient(ellipse at 15% 15%, #df7aff45, transparent 75%),
+    linear-gradient(145deg, #39274b, #1b1b2d 80%);
+  border-color: #df9aff55;
+}
+
+body > h2:nth-of-type(3n)::before {
+  color: #e0a2ff;
+}
+
+body > h2:nth-of-type(3n) + p {
+  grid-column: span 7;
+}
+
+body > h3 {
+  grid-column: span 3;
+}
+
+body > h3 + p {
+  grid-column: span 9;
+}
+
+body > h3:nth-of-type(3n) {
+  grid-column: span 4;
+}
+
+body > h3:nth-of-type(3n) + p {
   grid-column: span 8;
 }
 
@@ -111,42 +170,46 @@ p,
 ul {
   min-width: 0;
   margin: 0;
-  padding: 1.5rem;
-  border: 1px solid #9299bb24;
-  border-radius: 1rem;
-  background: linear-gradient(135deg, #171a27eF, #12151f);
-  box-shadow: 0 14px 34px #0002, inset 0 1px #ffffff08;
-  color: #c3c7d7;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: 1px solid #999cc638;
+  border-radius: 1.25rem;
+  background:
+    radial-gradient(ellipse at 100% 0, #8884ff20, transparent 70%),
+    linear-gradient(145deg, #202334, #151824 75%);
+  box-shadow: 0 18px 42px #0004, inset 0 1px #ffffff12;
+  color: #c9cddd;
   line-height: 1.85;
   overflow-wrap: anywhere;
 }
 
 body > p:first-of-type {
-  max-width: 82ch;
-  padding: 0.5rem 0 1rem;
+  max-width: 88ch;
+  padding: 0.75rem 0 1.25rem;
   border: 0;
-  border-bottom: 1px solid #9299bb35;
+  border-bottom: 1px solid #999cc64a;
   border-radius: 0;
   background: transparent;
   box-shadow: none;
-  color: #d5d8e5;
+  color: #d8dced;
   font-size: 1.08rem;
 }
 
 ul {
   padding-left: 3rem;
-  color: #d4d8eb;
+  background:
+    radial-gradient(ellipse at 0 0, #42c8db25, transparent 70%),
+    linear-gradient(145deg, #172631, #151824 75%);
 }
 
 li::marker {
-  color: #87dcff;
+  color: #82e4f0;
 }
 
 footer {
   margin-top: 1rem;
   padding-top: 1rem;
-  border-top: 1px solid #777da54d;
-  color: #8990aa;
+  border-top: 1px solid #8a8eb744;
+  color: #9299b4;
   font-family: "Orbitron", sans-serif;
   font-size: 0.65rem;
   letter-spacing: 0.16em;
@@ -156,25 +219,51 @@ footer::before {
   content: "DESIGNED FOR WHAT'S NEXT";
 }
 
-@media (max-width: 720px) {
+@media (hover: hover) {
+  h2,
+  h3,
+  p,
+  ul {
+    transition: border-color 180ms ease, transform 180ms ease;
+  }
+
+  h2:hover,
+  h3:hover,
+  p:hover,
+  ul:hover {
+    transform: translateY(-3px);
+    border-color: #9ce7ff9c;
+  }
+}
+
+@media (max-width: 760px) {
   body {
-    gap: 0.9rem;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.85rem;
     width: min(100% - 2rem, 560px);
     padding-top: 1rem;
   }
 
+  header,
+  footer,
+  body > h1,
+  body > h2,
+  body > h2 + p,
   body > h3,
-  body > h3 + p {
-    grid-column: 1 / -1;
-  }
-
-  body > h3 {
-    margin-top: 0.5rem;
-    padding: 1rem;
-  }
-
+  body > h3 + p,
   body > p,
   body > ul {
+    grid-column: 1;
+  }
+
+  h2,
+  h3 {
+    min-height: 0;
+    padding: 1.2rem;
+  }
+
+  p,
+  ul {
     padding: 1.1rem;
   }
 }

@@ -13,16 +13,18 @@
 
 body {
   display: grid;
-  grid-template-columns: minmax(12rem, 3fr) minmax(0, 9fr);
-  gap: 1rem 2rem;
-  width: min(100% - 3rem, 1080px);
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1.25rem 1.5rem;
+  width: min(100% - 3rem, 1160px);
   min-height: 100vh;
   margin: 0 auto;
   padding: 2rem 0 4rem;
   background-image:
+    radial-gradient(ellipse at 8% 15%, #00e6402b 0, transparent 38rem),
+    radial-gradient(ellipse at 92% 48%, #00ff3020 0, transparent 42rem),
     linear-gradient(#00ff0808 1px, transparent 1px),
     linear-gradient(90deg, #00ff0808 1px, transparent 1px);
-  background-size: 36px 36px;
+  background-size: auto, auto, 36px 36px, 36px 36px;
 }
 
 header,
@@ -31,6 +33,20 @@ body > h1,
 body > p:first-of-type,
 body > ul {
   grid-column: 1 / -1;
+}
+
+body > h2,
+body > h3 {
+  grid-column: 1 / -1;
+}
+
+body > p:not(:first-of-type) {
+  grid-column: 1 / span 8;
+  width: 100%;
+}
+
+body > p:nth-of-type(odd):not(:first-of-type) {
+  grid-column: 5 / span 8;
 }
 
 header {
@@ -49,8 +65,10 @@ h1 {
   margin: 1.5rem 0 0;
   padding: clamp(1.5rem, 6vw, 4rem);
   border: 1px solid #267a3e;
-  background: linear-gradient(110deg, #0b1b10, #08100b 70%);
-  box-shadow: inset 4px 0 #35f36b, 0 12px 40px #0008;
+  background:
+    radial-gradient(ellipse at 85% 15%, #0bff553d, transparent 30rem),
+    linear-gradient(115deg, #0c2c16, #061109 62%, #0a1d0e);
+  box-shadow: inset 4px 0 #35f36b, 0 18px 55px #00d43922;
   color: #65ff82;
   font-size: clamp(2.2rem, 7vw, 5rem);
   font-weight: 400;
@@ -113,8 +131,11 @@ ul {
   min-width: 0;
   margin: 0;
   padding: 1.1rem 1.25rem;
-  border: 1px solid #183c24;
-  background: #09110ddd;
+  border: 1px solid #23723a;
+  background:
+    radial-gradient(ellipse at 100% 0, #00d43b22, transparent 65%),
+    linear-gradient(125deg, #102617f5, #08130c 72%, #0b1b10);
+  box-shadow: 0 14px 38px #0008, inset 0 1px #91ff9e18;
   color: #bed2c2;
   font-size: 0.95rem;
   line-height: 1.8;
@@ -125,8 +146,8 @@ body > p:first-of-type {
   max-width: 78ch;
   padding: 1.25rem 0;
   border: 0;
-  border-top: 1px solid #183c24;
-  border-bottom: 1px solid #183c24;
+  border-top: 1px solid #32894a;
+  border-bottom: 1px solid #32894a;
   background: transparent;
   color: #d1e4d5;
   font-size: 1.05rem;
@@ -169,6 +190,11 @@ footer::before {
   body > h3,
   body > p,
   body > ul {
+    grid-column: 1;
+  }
+
+  body > p:not(:first-of-type),
+  body > p:nth-of-type(odd):not(:first-of-type) {
     grid-column: 1;
   }
 
