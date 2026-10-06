@@ -18,7 +18,7 @@ body {
   width: 100%;
   min-height: 100vh;
   margin: 0;
-  padding: 2rem clamp(1rem, 3vw, 3rem) 4rem;
+  padding: 2rem 1.25rem 4rem;
   background:
     radial-gradient(ellipse at 85% 0, #5552c844, transparent 34rem),
     radial-gradient(ellipse at 0 42rem, #16a2c826, transparent 38rem);
@@ -53,6 +53,7 @@ h3 {
 
 h1 {
   margin: 1rem 0 0;
+  width: 100%;
   padding: clamp(2rem, 8vw, 5.5rem);
   border: 1px solid #a9a2ff55;
   border-radius: 1.5rem;
@@ -83,6 +84,7 @@ h3 {
   flex-direction: column;
   justify-content: center;
   min-width: 0;
+  width: 100%;
   min-height: 11rem;
   margin: 0;
   padding: clamp(1.25rem, 3vw, 2rem);
@@ -169,6 +171,7 @@ body > h3:nth-of-type(3n) + p {
 p,
 ul {
   min-width: 0;
+  width: 100%;
   margin: 0;
   padding: clamp(1.25rem, 3vw, 2rem);
   border: 1px solid #999cc638;
@@ -183,8 +186,8 @@ ul {
 }
 
 body > p:first-of-type {
-  max-width: 88ch;
-  padding: 0.75rem 0 1.25rem;
+  max-width: none;
+  padding: 1.25rem 0;
   border: 0;
   border-bottom: 1px solid #999cc64a;
   border-radius: 0;
@@ -241,7 +244,7 @@ footer::before {
     grid-template-columns: minmax(0, 1fr);
     gap: 0.85rem;
     width: 100%;
-    padding: 1rem 1rem 3rem;
+    padding: 1rem 0.75rem 3rem;
   }
 
   header,
