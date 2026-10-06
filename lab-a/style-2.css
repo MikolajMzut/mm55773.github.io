@@ -1,3 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap");
+
+:root {
+  color-scheme: dark;
+  font-family: "Inter", sans-serif;
+  background: #080b14;
+  color: #e4e9f5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
-  background-color: #ecfbe6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  min-height: 100vh;
+  margin: 0;
+  padding: 3rem 1.25rem;
+  overflow-x: hidden;
+  background:
+    radial-gradient(ellipse at 15% 0, #15315a88, transparent 38rem),
+    radial-gradient(ellipse at 95% 35%, #28205266, transparent 34rem),
+    #080b14;
+}
+
+header,
+footer,
+body > h1,
+body > h2,
+body > h3,
+body > p,
+body > ul {
+  width: min(100%, 900px);
+}
+
+header {
+  height: 2rem;
+  border-bottom: 1px solid #8da6ff35;
+}
+
+header::before {
+  color: #83d9ff;
+  content: "NEXUS  /  TECH JOURNAL";
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Orbitron", sans-serif;
+}
+
+h1 {
+  margin: 2rem 0 0;
+  padding: clamp(1.5rem, 5vw, 3rem);
+  border: 1px solid #8da6ff40;
+  border-radius: 1.25rem;
+  background:
+    linear-gradient(115deg, #131d31ee, #101021cc),
+    #111827;
+  box-shadow: 0 24px 70px #0008, inset 0 1px #ffffff12;
+  color: #f4f7ff;
+  font-size: clamp(2rem, 7vw, 4rem);
+  letter-spacing: -0.04em;
+}
+
+h1::before {
+  display: block;
+  margin-bottom: 1rem;
+  color: #70ddff;
+  content: "FUTURE HARDWARE  /  2026";
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+}
+
+h2 {
+  margin: 2rem 0 0;
+  color: #9caeff;
+  font-size: clamp(1.25rem, 4vw, 1.8rem);
+}
+
+h3 {
+  margin: 1rem 0 0;
+  color: #74dfff;
+  font-size: 1rem;
+}
+
+p,
+ul {
+  margin: 0;
+  padding: 1.5rem;
+  border: 1px solid #a5b7ff1c;
+  border-radius: 0.9rem;
+  background: linear-gradient(135deg, #141a29ee, #10131eee);
+  box-shadow: 0 14px 35px #0003, inset 0 1px #ffffff08;
+  color: #c2cadb;
+  line-height: 1.85;
+}
+
+ul {
+  padding-left: 3rem;
+  color: #a9e9ff;
+}
+
+li::marker {
+  color: #70ddff;
+}
+
+footer {
+  min-height: 2rem;
+  margin-top: 2rem;
+  border-top: 1px solid #8da6ff35;
+}
+
+footer::before {
+  color: #78849d;
+  content: "DESIGNED FOR WHAT'S NEXT";
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+}
+
+@media (hover: hover) {
+  p,
+  ul {
+    transition: border-color 180ms ease, transform 180ms ease;
+  }
+
+  p:hover,
+  ul:hover {
+    transform: translateY(-2px);
+    border-color: #70ddff66;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 1.5rem 1rem;
+  }
+
+  p,
+  ul {
+    padding: 1.1rem;
+  }
 }

@@ -1,3 +1,163 @@
+@import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
+
+:root {
+  color-scheme: dark;
+  font-family: "Share Tech Mono", "Courier New", monospace;
+  background: #020603;
+  color: #b5ffc0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
-  background-color: #dfecff;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  min-height: 100vh;
+  margin: 0;
+  padding: 3rem 1.25rem;
+  overflow-x: hidden;
+  background:
+    radial-gradient(ellipse at 50% 0, #063516 0, transparent 48rem),
+    repeating-linear-gradient(0deg, transparent 0 3px, #00ff3610 4px),
+    #020603;
+}
+
+body::before {
+  position: fixed;
+  z-index: 2;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0 3px,
+    #00ff3608 4px 5px
+  );
+  content: "";
+  pointer-events: none;
+}
+
+header,
+footer,
+body > h1,
+body > h2,
+body > h3,
+body > p,
+body > ul {
+  width: min(100%, 900px);
+}
+
+header {
+  height: 2rem;
+  border-bottom: 1px solid #00ff3666;
+}
+
+header::before {
+  color: #00ff56;
+  content: "SYSTEM ONLINE // RTX2137";
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+}
+
+h1,
+h2,
+h3 {
+  color: #26ff57;
+  text-shadow: 0 0 12px #00ff5680;
+}
+
+h1 {
+  margin: 2rem 0 0;
+  padding: 1.5rem;
+  border: 1px solid #00ff5680;
+  background: linear-gradient(120deg, #06210e, #031008);
+  box-shadow: 0 0 28px #00ff361c, inset 0 0 24px #00ff3612;
+  font-size: clamp(2rem, 7vw, 4.5rem);
+  letter-spacing: 0.06em;
+}
+
+h1::before {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #72ff8d;
+  content: " // NOWA GENERACJA";
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+}
+
+h2 {
+  margin: 2rem 0 0;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid #00ff5666;
+  font-size: clamp(1.3rem, 4vw, 1.8rem);
+}
+
+h2::before {
+  color: #00a832;
+  content: "> ";
+}
+
+h3 {
+  margin: 1rem 0 0;
+  color: #8aff9e;
+  font-size: 1.1rem;
+}
+
+p,
+ul {
+  margin: 0;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid #157a3566;
+  border-left: 3px solid #00d943;
+  background: #06120bd9;
+  box-shadow: 0 8px 24px #0008;
+  line-height: 1.8;
+}
+
+ul {
+  padding-left: 3rem;
+  color: #48ff70;
+}
+
+li::marker {
+  color: #00ff56;
+}
+
+footer {
+  min-height: 2rem;
+  margin-top: 2rem;
+  border-top: 1px solid #00ff3666;
+}
+
+footer::before {
+  color: #438e52;
+  content: "END OF TRANSMISSION";
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 1.5rem 1rem;
+  }
+
+  p,
+  ul {
+    padding: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  h1 {
+    animation: terminal-glow 4s ease-in-out infinite alternate;
+  }
+
+  @keyframes terminal-glow {
+    to {
+      box-shadow: 0 0 38px #00ff3633, inset 0 0 28px #00ff361c;
+    }
+  }
 }
