@@ -1,268 +1,213 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Orbitron:wght@500;600;700&display=swap");
-
-:root {
-  color-scheme: dark;
-  font-family: "DM Sans", sans-serif;
-  color: #e8eaf4;
-  background: #0b0d15;
-}
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;900&family=Syne:wght@500;700;800&family=Inter:wght@400;500;600&display=swap");
 
 * {
   box-sizing: border-box;
 }
 
 body {
+  margin: 0;
+  padding: 2rem clamp(1rem, 4vw, 4.5rem) 6rem;
+  background-color: #090a10;
+  background-image:
+    radial-gradient(ellipse at 80% 0%, rgba(121, 82, 245, 0.16), transparent 50%),
+    radial-gradient(ellipse at 15% 45%, rgba(0, 216, 246, 0.1), transparent 45%),
+    radial-gradient(ellipse at 70% 90%, rgba(121, 82, 245, 0.12), transparent 50%);
+  color: #eceffc;
+  font-family: "Inter", sans-serif;
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: 1rem;
-  width: 100%;
+  gap: 1.25rem;
   min-height: 100vh;
-  margin: 0;
-  padding: 2rem 1.25rem 4rem;
-  background:
-    radial-gradient(ellipse at 85% 0, #5552c844, transparent 34rem),
-    radial-gradient(ellipse at 0 42rem, #16a2c826, transparent 38rem);
+  color-scheme: dark;
 }
 
-header,
-footer,
-body > h1,
-body > p:first-of-type,
-body > ul {
-  grid-column: 1 / -1;
-}
-
+/* Envytech Header Navbar */
 header {
-  padding: 0.8rem 0;
-  border-bottom: 1px solid #8a8eb744;
-  color: #aeb4d1;
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.8rem;
+  background: rgba(17, 20, 32, 0.7);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(142, 120, 255, 0.16);
+  border-radius: 9999px;
   font-family: "Orbitron", sans-serif;
-  font-size: 0.7rem;
-  letter-spacing: 0.18em;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  margin-bottom: 1rem;
 }
 
 header::before {
-  content: "NEXUS  /  GRAPHICS";
-}
-
-h1,
-h2,
-h3 {
-  font-family: "Orbitron", sans-serif;
-}
-
-h1 {
-  margin: 1rem 0 0;
-  padding: clamp(2rem, 8vw, 5.5rem);
-  border: 1px solid #a9a2ff55;
-  border-radius: 1.5rem;
-  background:
-    radial-gradient(ellipse at 82% 20%, #8780ff66, transparent 25rem),
-    linear-gradient(125deg, #242343, #171927 68%, #11242f);
-  box-shadow: 0 25px 70px #0007, inset 0 1px #ffffff20;
-  color: #f7f5ff;
-  font-size: clamp(2.4rem, 8vw, 5.5rem);
-  font-weight: 600;
-  letter-spacing: -0.055em;
-  line-height: 1.1;
-  overflow-wrap: anywhere;
-}
-
-h1::before {
-  display: block;
-  margin-bottom: 1.1rem;
-  color: #88e4ff;
-  content: "NEXT GENERATION  /  2026";
-  font-size: 0.7rem;
+  content: "ENVYTECH // BENTO.UI";
+  color: #fff;
+  font-weight: 800;
   letter-spacing: 0.2em;
 }
 
-h2,
-h3 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-width: 0;
-  min-height: 11rem;
-  margin: 0;
-  padding: clamp(1.25rem, 3vw, 2rem);
-  border: 1px solid #a7a6f34a;
-  border-radius: 1.25rem;
-  background:
-    radial-gradient(ellipse at 15% 15%, #8780ff55, transparent 75%),
-    linear-gradient(145deg, #29274c, #191c2c 80%);
-  box-shadow: 0 18px 42px #0004, inset 0 1px #ffffff17;
-  color: #e8e6ff;
-  font-size: clamp(1rem, 2vw, 1.35rem);
-  font-weight: 500;
-  line-height: 1.45;
-  overflow-wrap: anywhere;
+header::after {
+  content: "EXPLORE FUTURE TECH • 2026";
+  color: #00d8f6;
+  font-size: 0.7rem;
 }
 
-h2::before,
-h3::before {
-  margin-bottom: 0.8rem;
-  color: #8ce2ff;
-  font-family: "DM Sans", sans-serif;
-  font-size: 0.65rem;
+/* Główny Hero Banner / Tytuł artykułu */
+h1 {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: clamp(2.5rem, 6vw, 4.5rem);
+  border-radius: 1.5rem;
+  background:
+    linear-gradient(135deg, rgba(121, 82, 245, 0.25) 0%, rgba(17, 20, 32, 0.95) 70%),
+    radial-gradient(circle at 100% 0%, rgba(0, 216, 246, 0.22), transparent 50%);
+  border: 1px solid rgba(121, 82, 245, 0.35);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  font-family: "Orbitron", sans-serif;
+  font-size: clamp(2.4rem, 6vw, 5rem);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+h1::before {
+  content: "HARDWARE SPOTLIGHT • BENCHMARK";
+  display: block;
+  font-family: "Syne", sans-serif;
+  font-size: 0.85rem;
   font-weight: 700;
-  letter-spacing: 0.16em;
+  color: #00d8f6;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+}
+
+/* Wstęp / Lead Bento Card */
+body > p:first-of-type {
+  grid-column: 1 / -1;
+  background: rgba(22, 26, 42, 0.6);
+  border: 1px solid rgba(142, 120, 255, 0.16);
+  border-radius: 1.5rem;
+  padding: 1.8rem 2.2rem;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #d7dbf0;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Kafelki Bento: H2 i powiązany paragraf (Układ 4 + 8 kolumn) */
+h2 {
+  grid-column: span 4;
+  margin: 0;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  background: linear-gradient(150deg, #181d30 0%, #111422 100%);
+  border: 1px solid rgba(142, 120, 255, 0.16);
+  font-family: "Syne", sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.3);
+  transition: transform 0.25s ease, border-color 0.25s ease;
 }
 
 h2::before {
-  content: "01  /  OVERVIEW";
-}
-
-h3 {
-  border-color: #75cbe34a;
-  background:
-    radial-gradient(ellipse at 15% 15%, #4bc5df4a, transparent 75%),
-    linear-gradient(145deg, #1d3545, #171d2a 80%);
-  color: #ddf8ff;
-}
-
-h3::before {
-  content: "DETAIL  /  SPEC";
-  color: #86e9f4;
-}
-
-body > h2 {
-  grid-column: span 4;
+  content: "INSIGHT // CORE";
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.7rem;
+  color: #7952f5;
+  letter-spacing: 0.18em;
+  margin-bottom: auto;
+  padding-bottom: 1.5rem;
 }
 
 body > h2 + p {
   grid-column: span 8;
 }
 
-body > h2:nth-of-type(3n) {
+/* Kafelki Bento: H3 i powiązany paragraf (Układ 5 + 7 kolumn) */
+h3 {
   grid-column: span 5;
+  margin: 0;
+  padding: 2rem;
+  border-radius: 1.5rem;
   background:
-    radial-gradient(ellipse at 15% 15%, #df7aff55, transparent 75%),
-    linear-gradient(145deg, #39274b, #1b1b2d 80%);
-  border-color: #df9aff55;
+    radial-gradient(circle at 10% 10%, rgba(0, 216, 246, 0.15), transparent 70%),
+    linear-gradient(150deg, #121929 0%, #0e1320 100%);
+  border: 1px solid rgba(0, 216, 246, 0.25);
+  font-family: "Syne", sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  color: #e4fcff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.3);
+  transition: transform 0.25s ease, border-color 0.25s ease;
 }
 
-body > h2:nth-of-type(3n)::before {
-  color: #e0a2ff;
-}
-
-body > h2:nth-of-type(3n) + p {
-  grid-column: span 7;
-}
-
-body > h3 {
-  grid-column: span 3;
+h3::before {
+  content: "ARCHITECTURE // 02";
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.7rem;
+  color: #00d8f6;
+  letter-spacing: 0.18em;
+  margin-bottom: auto;
+  padding-bottom: 1.5rem;
 }
 
 body > h3 + p {
-  grid-column: span 9;
+  grid-column: span 7;
 }
 
-body > h3:nth-of-type(3n) {
-  grid-column: span 4;
+/* Każdy co 3 kafelek H2 dostaje specjalny szeroki gradient (dynamika bento) */
+body > h2:nth-of-type(3n) {
+  grid-column: span 12;
+  background:
+    linear-gradient(90deg, rgba(121, 82, 245, 0.2) 0%, rgba(0, 216, 246, 0.15) 100%),
+    #131625;
+  border-color: rgba(121, 82, 245, 0.4);
 }
 
-body > h3:nth-of-type(3n) + p {
-  grid-column: span 8;
+body > h2:nth-of-type(3n) + p {
+  grid-column: span 12;
 }
 
-p,
-ul {
-  min-width: 0;
+/* Wszystkie standardowe karty tekstowe w bento */
+p {
   margin: 0;
-  padding: clamp(1.25rem, 3vw, 2rem);
-  border: 1px solid #999cc638;
-  border-radius: 1.25rem;
-  background:
-    radial-gradient(ellipse at 100% 0, #8884ff30, transparent 70%),
-    linear-gradient(145deg, #202334, #151824 75%);
-  box-shadow: 0 18px 42px #0004, inset 0 1px #ffffff12;
-  color: #c9cddd;
+  padding: 1.8rem 2rem;
+  border-radius: 1.5rem;
+  background: #111420;
+  border: 1px solid rgba(142, 120, 255, 0.16);
+  color: #8b92b0;
   line-height: 1.85;
-  overflow-wrap: anywhere;
+  font-size: 0.98rem;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
+  transition: transform 0.25s ease, border-color 0.25s ease;
 }
 
-body > p:first-of-type {
-  max-width: none;
-  padding: 1.25rem 0;
-  border: 0;
-  border-bottom: 1px solid #999cc64a;
-  border-radius: 0;
-  background: transparent;
-  box-shadow: none;
-  color: #d8dced;
-  font-size: 1.08rem;
-}
-
+/* Lista jako kafelki specyfikacji w Bento Boxie */
 ul {
-  padding-left: 3rem;
-  background:
-    radial-gradient(ellipse at 0 0, #42c8db35, transparent 70%),
-    linear-gradient(145deg, #172631, #151824 75%);
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 1.5rem 2rem;
+  border-radius: 1.5rem;
+  background: linear-gradient(135deg, #131728 0%, #0d101c 100%);
+  border: 1px solid rgba(142, 120, 255, 0.16);
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  list-style: none;
 }
 
-li::marker {
-  color: #82e4f0;
-}
-
-footer {
-  margin-top: 1rem;
-  padding-top: 1rem;
-  border-top: 1px solid #8a8eb744;
-  color: #9299b4;
-  font-family: "Orbitron", sans-serif;
-  font-size: 0.65rem;
-  letter-spacing: 0.16em;
-}
-
-footer::before {
-  content: "DESIGNED FOR WHAT'S NEXT";
-}
-
-@media (hover: hover) {
-  h2,
-  h3,
-  p,
-  ul {
-    transition: border-color 180ms ease, transform 180ms ease;
-  }
-
-  h2:hover,
-  h3:hover,
-  p:hover,
-  ul:hover {
-    transform: translateY(-3px);
-    border-color: #9ce7ff9c;
-  }
-}
-
-@media (max-width: 760px) {
-  body {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 0.85rem;
-    padding: 1rem 0.75rem 3rem;
-  }
-
-  header,
-  footer,
-  body > h1,
-  body > h2,
-  body > h2 + p,
-  body > h3,
-  body > h3 + p,
-  body > p,
-  body > ul {
-    grid-column: 1;
-  }
-
-  h2,
-  h3 {
-    min-height: 0;
-    padding: 1.2rem;
-  }
-
-  p,
-  ul {
-    padding: 1.1rem;
-  }
-}
+ul li {
+  padding: 1rem 2rem
