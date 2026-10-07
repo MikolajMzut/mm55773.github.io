@@ -17,10 +17,23 @@ body {
 
 header {
   grid-column: 1 / -1;
-  padding: 1rem 2rem;
-  background: #1f2833;
+  padding: 1.5rem 2rem;
+  background-color: #1f2833;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%2366fcf1' d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 2rem center;
+  background-size: 36px;
   border-radius: 15px;
   margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+header::before {
+  content: "ENVYTECH";
+  font-family: "Orbitron", sans-serif;
+  color: #66fcf1;
+  font-size: 1.2rem;
 }
 
 h1 {
@@ -129,6 +142,10 @@ footer {
   text-align: center;
   margin-top: 2rem;
   color: #45a29e;
+}
+
+footer::before {
+  content: "SYSTEM OFFLINE";
 }
 
 @media (max-width: 1024px) {

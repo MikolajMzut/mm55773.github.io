@@ -13,8 +13,8 @@ body {
   color: #00ff41;
   font-family: "Share Tech Mono", monospace;
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Dwie kolumny o równej szerokości na PC */
-  grid-auto-flow: dense; /* Magia, która automatycznie dociska H2 i H3 do odpowiednich rzędów i układa je równo obok siebie */
+  grid-template-columns: 1fr 1fr;
+  grid-auto-flow: dense;
   gap: 2rem;
   min-height: 100vh;
 }
@@ -22,8 +22,19 @@ body {
 header {
   grid-column: 1 / -1;
   border-bottom: 2px solid #00ff41;
-  padding-bottom: 1rem;
+  padding: 1.5rem;
   text-transform: uppercase;
+  background-color: rgba(0, 20, 0, 0.8);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%2300ff41' d='M20 19V7H4v12h16m0-16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5c0-1.11.89-2 2-2h16m-7 14v-2h5v2h-5m-3.42-4L5.57 9H8.4l3.3 3.3c.39.39.39 1.03 0 1.42L8.4 17H5.57l4.01-4z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1.5rem center;
+  background-size: 32px;
+  display: flex;
+  align-items: center;
+}
+
+header::before {
+  content: "SYS_INIT // MATRIX_PROTOCOL";
 }
 
 h1 {
@@ -43,12 +54,10 @@ body > p:first-of-type {
   line-height: 1.8;
 }
 
-/* Wymuszamy układ: H2 z akapitem w lewej kolumnie */
 h2, body > h2 + p {
   grid-column: 1;
 }
 
-/* Wymuszamy układ: H3 z akapitem w prawej kolumnie */
 h3, body > h3 + p {
   grid-column: 2;
 }
@@ -58,7 +67,6 @@ h2, h3 {
   padding: 1rem;
   background: rgba(0, 20, 0, 0.6);
   border-bottom: 2px solid #00ff41;
-  /* Usunięto position: sticky, dzięki czemu headery scrollują się naturalnie i już na siebie NIE NACHODZĄ! */
 }
 
 h2 {
@@ -100,7 +108,10 @@ footer {
   text-align: center;
 }
 
-/* Na mniejszych ekranach zwijamy do 1 kolumny */
+footer::before {
+  content: "END_OF_FILE";
+}
+
 @media (max-width: 900px) {
   body {
     grid-template-columns: 1fr;
