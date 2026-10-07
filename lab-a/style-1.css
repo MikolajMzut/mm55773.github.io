@@ -33,10 +33,6 @@ header {
   align-items: center;
 }
 
-header::before {
-  content: "SYS_INIT // MATRIX_PROTOCOL";
-}
-
 h1 {
   grid-column: 1 / -1;
   font-size: clamp(2rem, 5vw, 4rem);
