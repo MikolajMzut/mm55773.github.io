@@ -71,6 +71,18 @@ function pokazAktualnaPogode(dane) {
   const odczuwalna = Math.round(dane.main.feels_like);
   const opis = dane.weather[0].description;
   const ikona = dane.weather[0].icon;
+  const animacje = {
+    '01d': 'day', '01n': 'night',
+    '02d': 'cloudy-day-1', '02n': 'cloudy-night-1',
+    '03d': 'cloudy-day-3', '03n': 'cloudy-night-3',
+    '04d': 'cloudy', '04n': 'cloudy',
+    '09d': 'rainy-6', '09n': 'rainy-6',
+    '10d': 'rainy-3', '10n': 'rainy-5',
+    '11d': 'thunder', '11n': 'thunder',
+    '13d': 'snowy-3', '13n': 'snowy-5',
+    '50d': 'cloudy', '50n': 'cloudy'
+  };
+  const animacja = animacje[ikona] || 'cloudy';
 
   aktualnaPogoda.innerHTML = `
         <div class="karta aktualna">
@@ -80,9 +92,16 @@ function pokazAktualnaPogode(dane) {
                 <p>${opis}</p>
                 <p>Odczuwalna: ${odczuwalna}°C</p>
             </div>
-            <img src="https://openweathermap.org/img/wn/${ikona}@2x.png" alt="Ikona pogody">
+            <figure class="animacja-pogody">
+                <img src="https://www.amcharts.com/lib/images/weather/animated/${animacja}.svg"
+                     alt="${opis}" width="160" height="160">
+            </figure>
         </div>
     `;
+
+  aktualnaPogoda.querySelector('.animacja-pogody img').addEventListener('error', function() {
+    this.src = `https://openweathermap.org/img/wn/${ikona}@2x.png`;
+  }, { once: true });
 }
 
 function pokazPrognoze(dane) {
