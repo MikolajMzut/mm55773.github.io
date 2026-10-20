@@ -1,3 +1,4 @@
+//Kod wygenerowany za pomocą CODEX
 const apiKey = "1977755dc8b77ef890088a95f8f9ea79";
 
 const poleMiasto = document.getElementById("miasto");
