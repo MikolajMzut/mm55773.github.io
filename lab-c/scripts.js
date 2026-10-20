@@ -1,5 +1,4 @@
-// Mój klucz API ze strony OpenWeatherMap
-const apiKey = "7ded80d91f2b280ec979100cc8bbba94";
+const apiKey = "1977755dc8b77ef890088a95f8f9ea79";
 
 const poleMiasto = document.getElementById("miasto");
 const przycisk = document.getElementById("przycisk");
@@ -8,7 +7,6 @@ const prognoza = document.getElementById("prognoza");
 
 przycisk.addEventListener("click", pobierzPogode);
 
-// Można też wyszukiwać klawiszem Enter
 poleMiasto.addEventListener("keydown", function(event) {
   if (event.key === "Enter") {
     pobierzPogode();
@@ -26,7 +24,6 @@ function pobierzPogode() {
   aktualnaPogoda.innerHTML = "<p>Ładowanie aktualnej pogody...</p>";
   prognoza.innerHTML = "<p>Ładowanie prognozy...</p>";
 
-  // 1. Aktualna pogoda - XMLHttpRequest
   const adresPogody = "https://api.openweathermap.org/data/2.5/weather?q="
     + encodeURIComponent(miasto) + "&appid=" + apiKey + "&units=metric&lang=pl";
 
@@ -49,7 +46,6 @@ function pobierzPogode() {
 
   zapytanie.send();
 
-  // 2. Prognoza na 5 dni - Fetch API
   const adresPrognozy = "https://api.openweathermap.org/data/2.5/forecast?q="
     + encodeURIComponent(miasto) + "&appid=" + apiKey + "&units=metric&lang=pl";
 
