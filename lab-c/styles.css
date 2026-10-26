@@ -6,7 +6,7 @@ body {
   color: #223047;
 }
 
-.kontener {
+.container {
   max-width: 1000px;
   margin: 40px auto;
   padding: 20px;
@@ -17,7 +17,7 @@ h1 {
   margin-bottom: 10px;
 }
 
-.wyszukiwarka {
+.search-form {
   display: flex;
   gap: 10px;
   margin: 25px 0;
@@ -46,7 +46,7 @@ button:hover {
   background-color: #173b70;
 }
 
-.karta {
+.card {
   background-color: white;
   padding: 18px;
   border-radius: 12px;
@@ -54,7 +54,7 @@ button:hover {
   text-align: center;
 }
 
-.aktualna {
+.current {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
   align-items: center;
@@ -66,13 +66,13 @@ button:hover {
   background: linear-gradient(120deg, #ffffff, #e2efff);
 }
 
-.aktualna h2 {
+.current h2 {
   margin: 8px 0 12px;
   font-size: clamp(24px, 3vw, 32px);
   overflow-wrap: anywhere;
 }
 
-.aktualna-etykieta {
+.current-label {
   margin: 0;
   color: #2356a0;
   font-size: 13px;
@@ -81,83 +81,83 @@ button:hover {
   text-transform: uppercase;
 }
 
-.aktualna-temperatura {
+.current-temperature {
   text-align: center;
 }
 
-.aktualna .temperatura {
+.current .temperature {
   font-size: clamp(44px, 6vw, 64px);
   color: #2356a0;
 }
 
-.karta.aktualna img {
+.card.current img {
   width: 140px;
   height: 140px;
   object-fit: contain;
 }
 
-.temperatura {
+.temperature {
   font-size: 44px;
   font-weight: bold;
   margin: 10px 0;
 }
 
-.temperatura-mala {
+.temperature-small {
   font-size: 24px;
   font-weight: bold;
   margin: 5px 0;
 }
 
-.siatka {
+.grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   gap: 15px;
 }
 
-.karta h3 {
+.card h3 {
   margin-top: 0;
 }
 
-.karta img {
+.card img {
   width: 80px;
   height: 80px;
 }
 
 @media (max-width: 550px) {
-  .kontener {
+  .container {
     margin: 10px auto;
   }
 
-  .wyszukiwarka {
+  .search-form {
     flex-direction: column;
   }
 
-  .aktualna {
+  .current {
     grid-template-columns: minmax(0, 1fr) auto;
     gap: 16px;
     padding: 24px 20px;
   }
 
-  .aktualna-opis {
+  .current-description {
     grid-column: 1 / -1;
   }
 
-  .aktualna-temperatura {
+  .current-temperature {
     text-align: left;
   }
 
-  .karta.aktualna img {
+  .card.current img {
     width: 96px;
     height: 96px;
   }
 }
 
-.animacja-pogody {
+.weather-animation {
   margin: 0;
   text-align: center;
 }
 
-.karta.aktualna .animacja-pogody img {
+.card.current .weather-animation img {
   display: block;
   width: 160px;
   height: 160px;
@@ -165,16 +165,16 @@ button:hover {
   margin: 0 auto;
 }
 
-.animacja-pogody figcaption {
+.weather-animation figcaption {
   font-size: 11px;
 }
 
-.animacja-pogody a {
+.weather-animation a {
   color: #45658b;
 }
 
 @media (max-width: 550px) {
-  .karta.aktualna .animacja-pogody img {
+  .card.current .weather-animation img {
     width: 96px;
     height: 96px;
   }

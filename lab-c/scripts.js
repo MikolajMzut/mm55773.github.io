@@ -1,77 +1,77 @@
-// Kod wygenerowany za pomoc? CODEX
-class AplikacjaPogodowa {
+// Kod wygenerowany za pomoca CODEX
+class WeatherApp {
   constructor(apiKey) {
     this.apiKey = apiKey;
-    this.formularz = document.getElementById("formularzPogody");
-    this.poleMiasto = document.getElementById("miasto");
-    this.aktualnaPogoda = document.getElementById("aktualnaPogoda");
-    this.prognoza = document.getElementById("prognoza");
+    this.form = document.getElementById("weatherForm");
+    this.cityInput = document.getElementById("city");
+    this.currentWeather = document.getElementById("currentWeather");
+    this.forecast = document.getElementById("forecast");
 
-    this.formularz.addEventListener("submit", (event) => {
+    this.form.addEventListener("submit", (event) => {
       event.preventDefault();
-      this.pobierzPogode();
+      this.fetchWeather();
     });
   }
 
-  pobierzPogode() {
-    const miasto = this.poleMiasto.value.trim();
+  fetchWeather() {
+    const city = this.cityInput.value.trim();
 
-    if (miasto === "") {
+    if (city === "") {
       alert("Wpisz nazwę miasta!");
       return;
     }
 
-    this.aktualnaPogoda.innerHTML = "<p>Ładowanie aktualnej pogody...</p>";
-    this.prognoza.innerHTML = "<p>Ładowanie prognozy...</p>";
+    this.currentWeather.innerHTML = "<p>Ładowanie aktualnej pogody...</p>";
+    this.forecast.innerHTML = "<p>Ładowanie prognozy...</p>";
 
-    const adresPogody = "https://api.openweathermap.org/data/2.5/weather?q="
-      + encodeURIComponent(miasto) + "&appid=" + this.apiKey + "&units=metric&lang=pl";
+    const weatherUrl = "https://api.openweathermap.org/data/2.5/weather?q="
+      + encodeURIComponent(city) + "&appid=" + this.apiKey + "&units=metric&lang=pl";
 
-    const zapytanie = new XMLHttpRequest();
-    zapytanie.open("GET", adresPogody, true);
+    const request = new XMLHttpRequest();
+    request.open("GET", weatherUrl, true);
 
-    zapytanie.onload = () => {
-      if (zapytanie.status === 200) {
-        const dane = JSON.parse(zapytanie.responseText);
-        console.log("Aktualna pogoda:", dane);
-        this.pokazAktualnaPogode(dane);
+    request.onload = () => {
+      if (request.status === 200) {
+        const weatherData = JSON.parse(request.responseText);
+        console.log("Aktualna pogoda:", weatherData);
+        this.displayCurrentWeather(weatherData);
       } else {
-        this.aktualnaPogoda.innerHTML = "<p>Nie udało się pobrać pogody. Sprawdź nazwę miasta.</p>";
+        this.currentWeather.innerHTML = "<p>Nie udało się pobrać pogody. Sprawdź nazwę miasta.</p>";
       }
     };
 
-    zapytanie.onerror = () => {
-      this.aktualnaPogoda.innerHTML = "<p>Błąd połączenia z serwerem.</p>";
+    request.onerror = () => {
+      this.currentWeather.innerHTML = "<p>Błąd połączenia z serwerem.</p>";
     };
 
-    zapytanie.send();
+    request.send();
 
-    const adresPrognozy = "https://api.openweathermap.org/data/2.5/forecast?q="
-      + encodeURIComponent(miasto) + "&appid=" + this.apiKey + "&units=metric&lang=pl";
+    const forecastUrl = "https://api.openweathermap.org/data/2.5/forecast?q="
+      + encodeURIComponent(city) + "&appid=" + this.apiKey + "&units=metric&lang=pl";
 
-    fetch(adresPrognozy)
-      .then((odpowiedz) => {
-        if (!odpowiedz.ok) {
+    fetch(forecastUrl)
+      .then((response) => {
+        if (!response.ok) {
           throw new Error("Błąd pobierania prognozy");
         }
-        return odpowiedz.json();
+        return response.json();
       })
-      .then((dane) => {
-        console.log("Prognoza pogody:", dane);
-        this.pokazPrognoze(dane);
+      .then((weatherData) => {
+        console.log("Prognoza pogody:", weatherData);
+        this.displayForecast(weatherData);
       })
-      .catch((blad) => {
-        console.log(blad);
-        this.prognoza.innerHTML = "<p>Nie udało się pobrać prognozy.</p>";
+      .catch((error) => {
+        console.log(error);
+        this.forecast.innerHTML = "<p>Nie udało się pobrać prognozy.</p>";
       });
   }
 
-  pokazAktualnaPogode(dane) {
-    const temperatura = Math.round(dane.main.temp);
-    const odczuwalna = Math.round(dane.main.feels_like);
-    const opis = dane.weather[0].description;
-    const ikona = dane.weather[0].icon;
-    const animacje = {
+  displayCurrentWeather(weatherData) {
+    const temperature = Math.round(weatherData.main.temp);
+    const feelsLike = Math.round(weatherData.main.feels_like);
+    const description = weatherData.weather[0].description;
+    const icon = weatherData.weather[0].icon;
+    const animations = {
       '01d': 'day', '01n': 'night',
       '02d': 'cloudy-day-1', '02n': 'cloudy-night-1',
       '03d': 'cloudy-day-3', '03n': 'cloudy-night-3',
@@ -82,52 +82,52 @@ class AplikacjaPogodowa {
       '13d': 'snowy-3', '13n': 'snowy-5',
       '50d': 'cloudy', '50n': 'cloudy'
     };
-    const animacja = animacje[ikona] || 'cloudy';
+    const animation = animations[icon] || 'cloudy';
 
-    this.aktualnaPogoda.innerHTML = `
-          <div class="karta aktualna">
+    this.currentWeather.innerHTML = `
+          <div class="card current">
               <div>
-                  <h2>Teraz: ${dane.name}</h2>
-                  <p class="temperatura">${temperatura}°C</p>
-                  <p>${opis}</p>
-                  <p>Odczuwalna: ${odczuwalna}°C</p>
+                  <h2>Teraz: ${weatherData.name}</h2>
+                  <p class="temperature">${temperature}°C</p>
+                  <p>${description}</p>
+                  <p>Odczuwalna: ${feelsLike}°C</p>
               </div>
-              <figure class="animacja-pogody">
-                  <img src="https://www.amcharts.com/lib/images/weather/animated/${animacja}.svg"
-                       alt="${opis}" width="160" height="160">
+              <figure class="weather-animation">
+                  <img src="https://www.amcharts.com/lib/images/weather/animated/${animation}.svg"
+                       alt="${description}" width="160" height="160">
               </figure>
           </div>
       `;
 
-    this.aktualnaPogoda.querySelector('.animacja-pogody img').addEventListener('error', function() {
-      this.src = `https://openweathermap.org/img/wn/${ikona}@2x.png`;
+    this.currentWeather.querySelector('.weather-animation img').addEventListener('error', function() {
+      this.src = `https://openweathermap.org/img/wn/${icon}@2x.png`;
     }, { once: true });
   }
 
-  pokazPrognoze(dane) {
-    this.prognoza.innerHTML = "<h2>Prognoza na 5 dni (co 3 godziny)</h2><div id='karty' class='siatka'></div>";
-    const karty = document.getElementById("karty");
+  displayForecast(weatherData) {
+    this.forecast.innerHTML = "<h2>Prognoza na 5 dni (co 3 godziny)</h2><div id='cards' class='grid'></div>";
+    const cards = document.getElementById("cards");
 
-    dane.list.forEach(function(element) {
-      const data = new Date(element.dt * 1000).toLocaleString("pl-PL", {
+    weatherData.list.forEach(function(forecastEntry) {
+      const date = new Date(forecastEntry.dt * 1000).toLocaleString("pl-PL", {
         day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit"
       });
-      const temperatura = Math.round(element.main.temp);
-      const odczuwalna = Math.round(element.main.feels_like);
-      const opis = element.weather[0].description;
-      const ikona = element.weather[0].icon;
+      const temperature = Math.round(forecastEntry.main.temp);
+      const feelsLike = Math.round(forecastEntry.main.feels_like);
+      const description = forecastEntry.weather[0].description;
+      const icon = forecastEntry.weather[0].icon;
 
-      karty.innerHTML += `
-              <div class="karta">
-                  <h3>${data}</h3>
-                  <img src="https://openweathermap.org/img/wn/${ikona}@2x.png" alt="Ikona pogody">
-                  <p class="temperatura-mala">${temperatura}°C</p>
-                  <p>${opis}</p>
-                  <p>Odczuwalna: ${odczuwalna}°C</p>
+      cards.innerHTML += `
+              <div class="card">
+                  <h3>${date}</h3>
+                  <img src="https://openweathermap.org/img/wn/${icon}@2x.png" alt="Ikona pogody">
+                  <p class="temperature-small">${temperature}°C</p>
+                  <p>${description}</p>
+                  <p>Odczuwalna: ${feelsLike}°C</p>
               </div>
           `;
     });
   }
 }
 
-const aplikacjaPogodowa = new AplikacjaPogodowa("1977755dc8b77ef890088a95f8f9ea79");
+const weatherApp = new WeatherApp("1977755dc8b77ef890088a95f8f9ea79");

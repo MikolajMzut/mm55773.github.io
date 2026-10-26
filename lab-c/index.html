@@ -9,17 +9,17 @@
     <script src="scripts.js" defer></script>
 </head>
 <body>
-<main class="kontener">
+<main class="container">
     <h1>Moja pogoda</h1>
     <p>Sprawdź aktualną pogodę i prognozę na najbliższe 5 dni.</p>
 
-    <form id="formularzPogody" class="wyszukiwarka">
-        <input type="text" id="miasto" placeholder="Wpisz miasto, np. Szczecin" value="Szczecin">
-        <button id="przycisk" type="submit">Pogoda</button>
+    <form id="weatherForm" class="search-form">
+        <input type="text" id="city" placeholder="Wpisz miasto, np. Szczecin" value="Szczecin">
+        <button id="submitButton" type="submit">Pogoda</button>
     </form>
 
-    <section id="aktualnaPogoda"></section>
-    <section id="prognoza"></section>
+    <section id="currentWeather"></section>
+    <section id="forecast"></section>
 </main>
 </body>
 </html>
