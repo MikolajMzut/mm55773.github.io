@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Imie Nazwisko (00000) - IS LAB C</title>
+
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <script src="scripts.js" defer></script>
+</head>
+<body>
+<main class="container">
+    <h1>Moja pogoda</h1>
+    <p>Sprawdź aktualną pogodę i prognozę na najbliższe 5 dni.</p>
+
+    <form id="weatherForm" class="search-form">
+        <input type="text" id="city" placeholder="Wpisz miasto, np. Szczecin" value="Szczecin">
+        <button id="submitButton" type="submit">Pogoda</button>
+    </form>
+
+    <section id="currentWeather"></section>
+    <section id="forecast"></section>
+</main>
+</body>
+</html>
