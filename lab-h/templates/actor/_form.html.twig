@@ -1,0 +1,9 @@
+{{ form_start(form) }}
+    {{ form_row(form.name, {'label': 'Imię i nazwisko'}) }}
+    {{ form_row(form.description, {'label': 'Opis'}) }}
+    {{ form_row(form.link, {'label': 'Link'}) }}
+    <div class="actor-actions">
+        <button class="btn btn-primary">{{ button_label|default('Dodaj aktora') }}</button>
+        <a class="btn btn-outline-secondary" href="{{ path('app_actor_index') }}">Wróć do listy</a>
+    </div>
+{{ form_end(form) }}

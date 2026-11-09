@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Aktorzy | Katalog aktorów{% endblock %}
+
+{% block body %}
+    <div class="page-heading d-flex flex-wrap align-items-center justify-content-between gap-3">
+        <div>
+            <h1>Aktorzy</h1>
+            <p class="text-body-secondary mb-0">Przeglądaj wpisy i zarządzaj swoim katalogiem.</p>
+        </div>
+        <a class="btn btn-primary" href="{{ path('app_actor_new') }}">Dodaj aktora</a>
+    </div>
+
+    <section class="catalog-panel" aria-label="Lista aktorów">
+        <div class="table-responsive" tabindex="0" role="region" aria-label="Tabela aktorów — na małym ekranie przewijaj w poziomie">
+            <table class="table table-striped table-hover align-middle actor-table">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Imię i nazwisko</th>
+                        <th scope="col">Opis</th>
+                        <th scope="col">Link</th>
+                        <th scope="col">Akcje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for actor in actors %}
+                    <tr>
+                        <td>{{ actor.id }}</td>
+                        <td class="fw-semibold">{{ actor.name }}</td>
+                        <td class="description-cell">{{ actor.description }}</td>
+                        <td class="link-cell">{{ actor.link }}</td>
+                        <td>
+                            <div class="actor-actions">
+                                <a class="btn btn-outline-secondary btn-sm" href="{{ path('app_actor_show', {'id': actor.id}) }}">Szczegóły</a>
+                                <a class="btn btn-primary btn-sm" href="{{ path('app_actor_edit', {'id': actor.id}) }}">Edytuj</a>
+                            </div>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="5" class="text-center text-body-secondary py-4">Brak aktorów. Dodaj pierwszy wpis do katalogu.</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+{% endblock %}

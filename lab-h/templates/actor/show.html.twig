@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ actor.name }} | Katalog aktorów{% endblock %}
+
+{% block body %}
+    <div class="page-heading">
+        <h1>{{ actor.name }}</h1>
+        <p class="text-body-secondary mb-0">Szczegóły aktora</p>
+    </div>
+    <section class="catalog-panel" aria-label="Dane aktora">
+        <dl class="row actor-details mb-0">
+            <dt class="col-sm-3">ID</dt>
+            <dd class="col-sm-9">{{ actor.id }}</dd>
+            <dt class="col-sm-3">Imię i nazwisko</dt>
+            <dd class="col-sm-9">{{ actor.name }}</dd>
+            <dt class="col-sm-3">Opis</dt>
+            <dd class="col-sm-9">{{ actor.description }}</dd>
+            <dt class="col-sm-3">Link</dt>
+            <dd class="col-sm-9">{{ actor.link }}</dd>
+        </dl>
+        <div class="actor-actions border-top pt-3">
+            <a class="btn btn-outline-secondary" href="{{ path('app_actor_index') }}">Wróć do listy</a>
+            <a class="btn btn-primary" href="{{ path('app_actor_edit', {'id': actor.id}) }}">Edytuj aktora</a>
+        </div>
+        {{ include('actor/_delete_form.html.twig') }}
+    </section>
+{% endblock %}

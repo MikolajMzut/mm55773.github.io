@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nowy aktor | Katalog aktorów{% endblock %}
+
+{% block body %}
+    <div class="form-panel">
+        <div class="page-heading">
+            <h1>Dodaj aktora</h1>
+            <p class="text-body-secondary mb-0">Uzupełnij dane nowego wpisu w katalogu.</p>
+        </div>
+        <section class="catalog-panel" aria-label="Dodawanie aktora">
+            {{ include('actor/_form.html.twig') }}
+        </section>
+    </div>
+{% endblock %}
